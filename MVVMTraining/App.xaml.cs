@@ -13,5 +13,18 @@ namespace MVVMTraining
 	/// </summary>
 	public partial class App : Application
 	{
+		private void App_OnStartup(object sender, StartupEventArgs e)
+		{
+			ViewStart();
+		}
+
+		private void ViewStart()
+		{
+			MVVM.ViewFactory factory = new MVVM.ViewFactory();
+
+			MVVM.ViewInfastructure infastructure = factory.Create();
+
+			infastructure.View.DataContext = infastructure.ViewModel;
+		}
 	}
 }

@@ -13,17 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MVVMTraining
+namespace MVVMTraining.MVVM
 {
 	/// <summary>
-	/// Interaction logic for MainWindow.xaml
+	/// Interaction logic for View.xaml
 	/// </summary>
-	public partial class MainWindow : Window
+	public partial class View : Page
 	{
-		public MainWindow()
+		public View()
 		{
 			InitializeComponent();
-			ContentFrame.Navigate(new Uri(@"\MVVM\View.xaml", UriKind.RelativeOrAbsolute));
 		}
 	}
 }

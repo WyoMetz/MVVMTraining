@@ -1,0 +1,108 @@
+﻿<Page x:Class="MVVMTraining.MVVM.View"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:mvvm="clr-namespace:MVVMTraining.MVVM"
+      mc:Ignorable="d" 
+      d:DesignHeight="180" d:DesignWidth="800"
+			d:DataContext='{d:DesignInstance mvvm:ViewModel}'       
+      Title="View">
+		<Page.Resources>
+				<mvvm:NegatedBoolConverter x:Key='NegatedBoolConverter' />
+				<BooleanToVisibilityConverter x:Key='BooleanToVisibilityConverter' />
+				<mvvm:NegatedVisibilityConverter x:Key='NegatedVisibilityConverter' />
+		</Page.Resources>
+
+    <Grid Background='Gray'>
+				<Grid.ColumnDefinitions>
+						<ColumnDefinition Width='2*' />
+						<ColumnDefinition Width='26*' />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+						<RowDefinition />
+						<RowDefinition />
+						<RowDefinition />
+						<RowDefinition />
+						<RowDefinition />
+				</Grid.RowDefinitions>
+				
+				<TextBlock Text='Name:  '  Grid.Column='0' VerticalAlignment='Top'/>
+				<TextBox Text='{Binding Name}' HorizontalAlignment='Stretch' Grid.Column='1' VerticalAlignment='Top'/>
+				<TextBlock Text='Address:  ' Grid.Column='0' Grid.Row='1' VerticalAlignment='Top' />
+				<TextBox Text='{Binding Address}' Grid.Column='1' Grid.Row='1' VerticalAlignment='Top' />
+				<TextBlock Text='Gender  ' Grid.Row='2' Grid.Column='0'/>
+				<StackPanel Orientation='Horizontal' Grid.Row='2' Grid.Column='1' HorizontalAlignment='Left'>
+						<RadioButton Content='Male  ' IsChecked='{Binding IsMale}' />
+						<RadioButton Content='Female' IsChecked='{Binding IsMale, Converter={StaticResource NegatedBoolConverter}}' />
+				</StackPanel>
+				<TextBlock Text='Birthdate ' Grid.Column='0' Grid.Row='3' />
+				<StackPanel Orientation='Horizontal' Grid.Column='1' Grid.Row='3' HorizontalAlignment='Left'>
+						<ComboBox Text='{Binding BirthDay}'>
+								<ComboBoxItem>1</ComboBoxItem>
+								<ComboBoxItem>2</ComboBoxItem>
+								<ComboBoxItem>3</ComboBoxItem>
+								<ComboBoxItem>4</ComboBoxItem>
+								<ComboBoxItem>5</ComboBoxItem>
+								<ComboBoxItem>6</ComboBoxItem>
+								<ComboBoxItem>7</ComboBoxItem>
+								<ComboBoxItem>8</ComboBoxItem>
+								<ComboBoxItem>9</ComboBoxItem>
+								<ComboBoxItem>10</ComboBoxItem>
+								<ComboBoxItem>11</ComboBoxItem>
+								<ComboBoxItem>12</ComboBoxItem>
+								<ComboBoxItem>13</ComboBoxItem>
+								<ComboBoxItem>14</ComboBoxItem>
+								<ComboBoxItem>15</ComboBoxItem>
+								<ComboBoxItem>16</ComboBoxItem>
+								<ComboBoxItem>17</ComboBoxItem>
+								<ComboBoxItem>18</ComboBoxItem>
+								<ComboBoxItem>19</ComboBoxItem>
+								<ComboBoxItem>20</ComboBoxItem>
+								<ComboBoxItem>21</ComboBoxItem>
+								<ComboBoxItem>22</ComboBoxItem>
+								<ComboBoxItem>23</ComboBoxItem>
+								<ComboBoxItem>24</ComboBoxItem>
+								<ComboBoxItem>25</ComboBoxItem>
+								<ComboBoxItem>26</ComboBoxItem>
+								<ComboBoxItem>27</ComboBoxItem>
+								<ComboBoxItem>28</ComboBoxItem>
+								<ComboBoxItem>29</ComboBoxItem>
+								<ComboBoxItem>30</ComboBoxItem>
+								<ComboBoxItem>31</ComboBoxItem>
+						</ComboBox>
+						<ComboBox Text='{Binding BirthMonth}'>
+								<ComboBoxItem>1</ComboBoxItem>
+								<ComboBoxItem>2</ComboBoxItem>
+								<ComboBoxItem>3</ComboBoxItem>
+								<ComboBoxItem>4</ComboBoxItem>
+								<ComboBoxItem>5</ComboBoxItem>
+								<ComboBoxItem>6</ComboBoxItem>
+								<ComboBoxItem>7</ComboBoxItem>
+								<ComboBoxItem>8</ComboBoxItem>
+								<ComboBoxItem>9</ComboBoxItem>
+								<ComboBoxItem>10</ComboBoxItem>
+								<ComboBoxItem>11</ComboBoxItem>
+								<ComboBoxItem>12</ComboBoxItem>
+						</ComboBox>
+						<ComboBox Text='{Binding BirthYear}'>
+								<ComboBoxItem>1</ComboBoxItem>
+								<ComboBoxItem>1990</ComboBoxItem>
+								<ComboBoxItem>1991</ComboBoxItem>
+								<ComboBoxItem>1992</ComboBoxItem>
+								<ComboBoxItem>1993</ComboBoxItem>
+								<ComboBoxItem>1994</ComboBoxItem>
+								<ComboBoxItem>1995</ComboBoxItem>
+								<ComboBoxItem>1996</ComboBoxItem>
+								<ComboBoxItem>1997</ComboBoxItem>
+								<ComboBoxItem>1998</ComboBoxItem>
+								<ComboBoxItem>1999</ComboBoxItem>
+								<ComboBoxItem>2000</ComboBoxItem>
+						</ComboBox>
+				</StackPanel>
+				<StackPanel Orientation='Horizontal' Grid.Column='1' Grid.Row='4' VerticalAlignment='Bottom' HorizontalAlignment='Right'>
+						<Button Content='Save' Margin='4' MinWidth='85' Command='{Binding SaveCommand}'/>
+						<Button Content='Erase' Margin='4' MinWidth='85' Command='{Binding EraseCommand}'/>
+				</StackPanel>
+		</Grid>
+</Page>
